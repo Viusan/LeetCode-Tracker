@@ -1,16 +1,39 @@
-Using SQLITE cause it is lightweight and perfect for what i need it for. I am only tracking notes so i don't need an advanced database.
+# LeetCode Tracker
 
-I am following this tutoiral:
-https://oneuptime.com/blog/post/2026-02-02-sqlite-nodejs/view
+Using SQLite because it is lightweight and perfect for what I need it for. I am only tracking notes so I don't need an advanced database.
 
-You need node.js installed, if you dont have it run this in your command:
+I am following this tutorial: [How to Use SQLite in Node.js Applications](https://oneuptime.com/blog/post/2026-02-02-sqlite-nodejs/view)
+
+## Setup
+
+You need Node.js installed. If you don't have it, run this in your terminal:
+
+```
 winget install OpenJS.NodeJS.LTS
+```
 
-Install better-sqlite3 library:
+Install the better-sqlite3 library:
+
+```
 npm install better-sqlite3
+```
 
-Install express which is a framework which makes it easier to send data and whatnot:
+Install Express, which is a framework that makes it easier to send data and whatnot:
+
+```
 npm install express
+```
 
-We need two different javascript files since browsers universally refuse any websites direct access to your filesystem. 
-app.js never touches the database but packages up the form values and sends them to server.js which is the only code that has direct access to database.
+## Why two JavaScript files
+
+We need two different JavaScript files since browsers universally refuse any website direct access to your filesystem.
+
+`app.js` never touches the database — it just packages up the form values and sends them to `server.js`, which is the only code that has direct access to the database.
+
+## Running it
+
+To start the server, run:
+
+```
+node server.js
+```
