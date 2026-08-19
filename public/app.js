@@ -15,4 +15,7 @@ document.getElementById('progressForm').addEventListener('submit', async (e) => 
 
     const saved = await res.json(); // Raw HTTP response
     console.log('Saved:', saved); // Print just to see the response and visually confirm if we want to
+
+    
+    e.target.reset(); // clears all inputs back to their default values
 });
