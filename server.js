@@ -40,6 +40,11 @@ app.post('/api/problems', (req, res) => {
     res.status(201).json({ id: info.lastInsertRowid, name, difficulty, notes });
 });
 
+app.get('/api/problems', (req, res) => {
+    const problems = db.prepare('SELECT * FROM problems').all();
+    res.json(problems);
+});
+
 app.listen(3000, () => {
   console.log('Server running at http://localhost:3000');
 });

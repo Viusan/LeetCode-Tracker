@@ -19,3 +19,28 @@ document.getElementById('progressForm').addEventListener('submit', async (e) => 
     
     e.target.reset(); // clears all inputs back to their default values
 });
+
+let problems = []; // holds everything fetched from the server
+
+async function loadProblems() {
+    const res = await fetch('/api/problems');
+    problems = await res.json();
+
+    const select = document.getElementById('problemSelect');
+    select.innerHTML = '<option value="" disabled selected>Choose a problem</option>';
+
+    problems.forEach((problem) => {
+        const option = document.createElement('option');
+        option.value = problem.id;
+        option.textContent = problem.name;
+        select.appendChild(option);
+    });
+}
+
+document.getElementById('problemSelect').addEventListener('change', (e) => {
+    const selectedId = Number(e.target.value);
+    const selected = problems.find((p) => p.id === selectedId);
+    document.getElementById('notesDisplay').textContent = selected ? selected.notes : '';
+});
+
+loadProblems(); // fetch and populate the dropdown as soon as the page loads

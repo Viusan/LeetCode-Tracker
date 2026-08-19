@@ -7,25 +7,46 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form id="progressForm">
-        <h1>LeetCode Tracker</h1>
+    <div class="page">
+        <header class="page-header">
+            <h1>LeetCode Tracker</h1>
+            <p class="subtitle">Track what you've solved, and remember how you solved it.</p>
+        </header>
 
-        <label for="problemName">Problem:</label>
-        <input type="text" id="problemName" required>
+        <div class="cards">
+            <form id="progressForm" class="card">
+                <h2>Add a problem</h2>
+            
+                <label for="problemName">Problem:</label>
+                <input type="text" id="problemName" required>
+            
+                <label for="description">Notes:</label>
+                <textarea id="description" rows="6" required></textarea>
+            
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty" name="difficulty" required>
+                    <option value="" disabled selected>Select difficulty</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+            
+                <button type="submit">Send Information</button>
+            </form>
+        
+            <div id="viewer" class="card">
+                <h2>View a problem</h2>
+                <label for="problemSelect">Select a problem:</label>
+                <select id="problemSelect">
+                    <option value="" disabled selected>Choose a problem</option>
+                </select>
+            
+                <p id="notesDisplay"></p>
+            </div>
+        </div>
+        
+    </div>
 
-        <label for="description">Notes:</label>
-        <textarea id="description" rows="6" required></textarea>
-
-        <label for="difficulty">Difficulty:</label>
-        <select id="difficulty" name="difficulty" required>
-            <option value="" disabled selected>Select difficulty</option>
-            <option value="Easy">Easy</option>
-            <option value="Medium">Medium</option>
-            <option value="Hard">Hard</option>
-        </select>
-
-        <button type="submit">Send Information</button>
-    </form>
     <script src="app.js"></script>
 </body>
 </html>
