@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LeetCode tracker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <form id="progressForm">
+        <h1>LeetCode Tracker</h1>
+
         <label for="problemName">Problem:</label>
         <input type="text" id="problemName" required>
 
         <label for="description">Notes:</label>
-        <input type="text" id="description" required>
+        <textarea id="description" rows="6" required></textarea>
 
-        <label for="difficulty">Difficulty: </label>
+        <label for="difficulty">Difficulty:</label>
         <select id="difficulty" name="difficulty" required>
             <option value="" disabled selected>Select difficulty</option>
             <option value="Easy">Easy</option>
